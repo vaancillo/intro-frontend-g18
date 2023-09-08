@@ -1,9 +1,13 @@
 body {
     background-color: rgb(44, 62, 80);
+    color: white;
 }
 
 .card-img-top{
     height: 10rem; 
     object-fit: cover;       
 }
-  
+
+.active {
+    border-bottom: 2px solid tomato;
+}
