@@ -1,20 +1,23 @@
-import { useEffect } from 'react'
-import { toast } from 'react-toastify'
 import Loading from '../components/common/Loading'
 import useGetData from '../hooks/useGetData'
+import { useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { useEffect } from 'react'
 
-function Country () {
-  const apiUrl = 'https://restcountries.com/v3.1/name/mexico'
+export default function Country () {
+  const { code } = useParams()
+
+  const apiUrl = `https://restcountries.com/v3.1/name/${code}`
 
   const { data: country, loading, error } = useGetData(apiUrl)
-
-  useEffect(() => {
-    if (error !== '') toast.error(error)
-  }, [error])
 
   if (loading) return <Loading />
 
   const { flags, name, capital } = country[0]
+
+  useEffect(() => {
+    if (error !== '') toast.error(error)
+  }, [error])
 
   return (
     <section className='container py-5'>
@@ -26,5 +29,3 @@ function Country () {
     </section>
   )
 }
-
-export default Country
