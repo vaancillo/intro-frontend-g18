@@ -8,7 +8,7 @@ export default function Paths () {
     <Routes>
       <Route path='/' element={<Navigate to='/countries' />} />
       <Route path='/countries' element={<Countries />} />
-      <Route path='/country/:code' element={<Country />} />
+      <Route path='/countries/:code' element={<Country />} />
     </Routes>
   )
 }

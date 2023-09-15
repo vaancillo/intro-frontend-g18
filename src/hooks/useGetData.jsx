@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 function useGetData (apiUrl) {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  const { signal, abort } = new AbortController()
+  // const { signal, abort } = new AbortController()
 
   const getData = async () => {
     try {
-      const req = await fetch(apiUrl, { signal })
+      const req = await fetch(apiUrl)
       const res = await req.json()
-      res.status === 200 && setData(res)
-      res.status === 404 && setError(String(error))
+      setData(res)
     } catch (error) {
       setError(String(error))
+      toast.error(error)
     } finally {
       setLoading(false)
     }
@@ -21,7 +22,7 @@ function useGetData (apiUrl) {
 
   useEffect(() => {
     getData()
-    return () => abort()
+    // return () => abort()
   }, [apiUrl])
 
   return { data, loading, error }
