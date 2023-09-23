@@ -1,6 +1,7 @@
+import { Helmet } from 'react-helmet-async'
 import Loading from '../components/common/Loading'
 import useGetData from '../hooks/useGetData'
-import { Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 
 export default function Country () {
   const { code } = useParams()
@@ -20,12 +21,20 @@ export default function Country () {
   const { flags, name, capital } = countries[0]
 
   return (
-    <section className='container py-5'>
-      <article className='text-white text-center'>
-        <img width='400px' src={flags.svg} alt={name.common} />
-        <h1 className='mt-3'>{name.common}</h1>
-        <p className='text-secondary'>{capital[0]}</p>
-      </article>
-    </section>
+    <>
+      <Helmet>
+        <title>{name.common}</title>
+      </Helmet>
+      <section className='container py-5'>
+        <article className='text-white text-center'>
+          <img width='400px' src={flags.svg} alt={name.common} />
+          <h1 className='mt-3'>{name.common}</h1>
+          <p className='text-secondary'>{capital[0]}</p>
+          <Link className='btn btn-primary' to='/'>
+            Home
+          </Link>
+        </article>
+      </section>
+    </>
   )
 }

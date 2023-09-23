@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
+import { HelmetProvider } from 'react-helmet-async'
 /* styles */
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'react-toastify/dist/ReactToastify.min.css'
@@ -12,9 +13,11 @@ const root = document.getElementById('root')
 
 createRoot(root).render(
   <>
-    <BrowserRouter>
-      <Paths />
-      <ToastContainer />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Paths />
+        <ToastContainer />
+      </BrowserRouter>
+    </HelmetProvider>
   </>
 )
