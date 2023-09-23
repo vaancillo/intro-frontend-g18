@@ -10,8 +10,11 @@ function useGetData (apiUrl) {
   const getData = async () => {
     try {
       const req = await fetch(apiUrl)
-      const res = await req.json()
+      const res = req.status === 200 ? await req.json() : []
       setData(res)
+      res.status === 404 && setError(res.message)
+      // req.status === 200 && setData(await req.json())
+      // const res = await req.json()
     } catch (error) {
       setError(String(error))
       toast.error(error)
