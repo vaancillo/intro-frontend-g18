@@ -24,6 +24,9 @@ function Countries () {
         <title>Countries API</title>
       </Helmet>
       <section className='container py-5'>
+        <form className='mb-4'>
+          <input className='form-control' type='text' name='' id='' placeholder='Search for a country...' />
+        </form>
         <div className='row gy-4'>
           {countries.map((country, index) => (
             <div key={index} className='col-12 col-md-6 col-lg-3'>
