@@ -30,7 +30,7 @@ export default function Country () {
           <img width='400px' src={flags.svg} alt={name.common} />
           <h1 className='mt-3'>{name.common}</h1>
           <p className='text-secondary'>{capital[0]}</p>
-          <Link className='btn btn-primary' to='/'>
+          <Link className='btn btn-primary' to='/countries'>
             Home
           </Link>
         </article>

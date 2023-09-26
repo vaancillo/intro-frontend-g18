@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Countries from './pages/Countries'
 import Country from './pages/Country'
 import Page404 from './pages/Page404'
+import Form from './docs/Form'
 
 export default function Paths () {
   return (
@@ -13,6 +14,8 @@ export default function Paths () {
       <Route path='/404' element={<Page404 />} />
       <Route path='/404' element={<Navigate to='/404' />} />
       <Route path='*' element={<Navigate to='/404' />} />
+      {/* Docs */}
+      <Route path='/form' element={<Form />} />
     </Routes>
   )
 }
