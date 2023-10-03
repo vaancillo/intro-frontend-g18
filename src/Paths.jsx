@@ -4,6 +4,7 @@ import Countries from './pages/Countries'
 import Country from './pages/Country'
 import Page404 from './pages/Page404'
 import FormHandle from './docs/FormHandle'
+import DashBoard from './docs/DashBoard'
 
 export default function Paths () {
   return (
@@ -16,6 +17,7 @@ export default function Paths () {
       <Route path='*' element={<Navigate to='/404' />} />
       {/* Docs */}
       <Route path='/form' element={<FormHandle />} />
+      <Route path='/dashboard' element={<DashBoard />} />
     </Routes>
   )
 }
